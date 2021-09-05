@@ -1,0 +1,586 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Signal Strength Checker</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shorBtcut icon" type="image/x-icon" href="{% static 'home/img/logo.ico' %}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'home/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/dripicons.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/swiper.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/responsive.css' %}">
+</head>
+<body>
+        <!-- header -->
+        <header class="header-area">
+            <div id="header-sticky" class="menu-area">
+                <div class="container">
+                    <div class="second-menu">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                    <a href="{% url 'home' %}"><img src="{% static 'home/img/logo/logo.png' %}" alt="logo" height="50px"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-9">
+                                <div class="responsive"><i class="icon dripicons-align-right"></i></div>
+                                <div class="main-menu text-right text-xl-right">
+                                     <nav id="mobile-menu">
+                                        <ul>
+                                            <li class="has-sub">
+												<a href="#parallax">Home</a>
+											</li>
+                                            <li><a href="#features">Features</a></li>
+                                            <li><a href="#about">About Us</a></li>
+                                            <li><a href="#screen">Screenshots</a></li>
+                                            <li><a href="#demo">Demo</a></li>
+                                            <li><a href="#team">Team</a></li>
+                                            <li><a href="#contact">Contact</a></li>
+                                            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>                                            
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 text-right d-none d-xl-block">
+                                <div class="header-btn second-header-btn">
+                                    <a href="#" class="btn">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header-end -->
+    <!-- main-area -->
+    <main>
+        <!-- slider-area -->
+        <section id="parallax" class="slider-area slider-bg2 second-slider-bg d-flex fix" style="background-image: url({% static 'home/img/bg/pink-header-bg.png' %}); background-position:right 0; background-repeat: no-repeat; background-size: 65%;">
+            <div class="slider-shape ss-one layer" data-depth="0.10">
+                <img src="{% static 'home/img/shape/header-sape.png' %}" alt="shape">
+            </div>
+            <div class="slider-shape ss-eight layer" data-depth="0.50"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="slider-content second-slider-content left-center">         
+                            <ul class="small-title mb-30">
+                                <li>New</li>
+                                <li>Best Mobile App</li>                                         
+                            </ul>
+                            <h2 data-animation="fadeInUp" data-delay=".4s">Signal Strength Checker</h2>
+                            <p data-animation="fadeInUp" data-delay=".6s">Signal Strength Checker is definitive way to measure your sim card performance. It is the easiest way to check your actual signal strength. Join us and help us understand how is the connectivity all across India.</p>
+                            <div class="slider-btn mt-30 mb-30">
+                                <a href="#" class="btn ss-btn" data-animation="fadeInUp" data-delay=".8s">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'home/img/screens/main-screen-resized2.png' %}" alt="shape" class="s-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- slider-area-end -->
+
+        <!-- services-area -->
+        <section id="features" class="services-area services-bg pt-25 pb-20" style="background-image: url({% static 'home/img/shape/header-sape2.png' %}); background-position: right top; background-size: auto;background-repeat: no-repeat;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-10">
+                        <div class="section-title text-center pl-40 pr-40 mb-45">
+                            <h2>Our Features</h2>
+                            <p>Following are some of the core features of our system</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 mb-30">
+                        <div class="s-single-services active text-center">
+                            <div class="services-icon">
+                                <img src="{% static 'home/img/icon/f-icon1.png' %}"/>
+                            </div>
+                            <div class="second-services-content">
+                                <h5>Perfect UI Design</h5>
+                                <p>Simple to use, Easy to understand UI design makes our app unique</p>
+                                <a><span>1</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 mb-30">
+                        <div class="s-single-services text-center">
+                            <div class="services-icon">
+                                <img src="{% static 'home/img/icon/f-icon3.png' %}"/>
+                            </div>
+                            <div class="second-services-content">
+                                <h5>Great CSS Animation</h5>
+                                <p>Smooth animation for great user experience</p>
+                                <a><span>2</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 mb-30">
+                        <div class="s-single-services text-center">
+                            <div class="services-icon">
+                                <img src="{% static 'home/img/icon/f-icon2.png' %}"/>
+                            </div>
+                            <div class="second-services-content">
+                                <h5>Fully Secured</h5>
+                                <p>We respect user's privacy and that's why we don't store user information</p>
+                                <a><span>3</span></a>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </section>
+        <!-- services-area-end -->
+
+        <!-- choose-area -->
+        <section id="about" class="choose-area pt-100 pb-60 p-relative" style="background-image: url({% static 'home/img/shape/header-sape3.png' %}); background-position: right center; background-size: auto;background-repeat: no-repeat;">
+            <div class="chosse-img" style="background-image:url({% static 'home/img/bg/easy-m-bg.png' %})"></div>
+            <div class="chosse-img2">
+                <img src="{% static 'home/img/screens/splash-screen-resized2.png' %}" alt="mobile"/>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5"></div>
+                    <div class="col-xl-7">
+                        <div class="choose-wrap">
+                            <div class="section-title w-title left-align mb-25">
+                                <h2>Easy And Perfect Solution For Analysing Signal Strength all across the Country</h2>
+                            </div>
+                            <div class="choose-content">
+                                <p>
+                                  We built this app with a vision of analysing signal strengths
+                                  across our country and allowing different network providers
+                                  to take suitable actions to improve the connectivity. This
+                                  will also allow our government to keep track of coverage by
+                                  different operators very easily and efficiently.
+                                </p>
+                                <p>
+                                  To solve this problem we built an Android App and a web
+                                  application. Android app collects the signal strength along
+                                  with location information and stores it in the database which
+                                  is then used by web application to show the connectivity 
+                                  dashboard.
+                                </p>
+                                <div class="choose-btn mt-30">
+                                    <a href="#" class="g-btn">
+                                        <span class="icon"><img src="{% static 'home/img/icon/g-play-icon.png' %}" alt="apple-icon"></span> 
+                                        <span class="text"> Available on <strong>GOOGLE PLAY</strong></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- choose-area-end -->
+
+        <!-- how-app-work -->
+        <section id="features" class="app-work pt-70 pb-100 p-relative" style="background-image: url({% static 'home/img/shape/header-sape4.png' %}); background-position: right center; background-size: auto;background-repeat: no-repeat;">            
+            <div class="container">
+                <div class="row align-items-center ">
+                    <div class="col-xl-6">
+                        <div class="choose-wrap">
+                            <div class="section-title w-title left-align mb-15">
+                                <h2>How does This App Work?</h2>
+                            </div>
+                            <div class="app-work-content mt-20">
+                                <ul>
+                                    <li>
+                                        <div class="icon"><img src="{% static 'home/img/icon/apw-Icon2.png' %}"></div> 
+                                        <div class="text">
+                                            <h4>Download It For Free</h4>
+                                            <p>Download our android app. It's the first step towards your contribution.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><img src="{% static 'home/img/icon/apw-Icon1.png' %}"></div> 
+                                        <div class="text">
+                                            <h4>Check Signal Strength</h4>
+                                            <p>Give necessary permissions and click on Go to check your signal strength.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><img src="{% static 'home/img/icon/apw-Icon3.png' %}"></div> 
+                                        <div class="text">
+                                            <h4>Enjoy This App</h4>
+                                            <p>Submit your review and let us know what other features you would like to have in our app.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 text-center">
+                        <img src="{% static 'home/img/screens/working-resized.png' %}" alt="app-work-img" class="img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- how-app-work -->
+
+        <!-- video-area -->
+        <section id="demo" class="video-area pt-100 pb-100 p-relative">                
+            <div class="video-img2">
+                <img src="{% static 'home/img/bg/video-img.png' %}" alt="mobile"/>
+                <a href="https://www.youtube.com/watch?v=7e90gBu4pas" class="popup-video">
+                    <img src="{% static 'home/img/bg/play-btn.png' %}" alt="play-btn.png">
+                </a>
+            </div>
+            <div class="video-img3">
+                <img src="{% static 'home/img/shape/header-sape5.png' %}" alt="header-sape4">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6"></div>
+                    <div class="col-xl-6">
+                        <div class="video-wrap">
+                            <div class="section-title w-title left-align mb-25">
+                                <h2>Demo of the Solution</h2>
+                            </div>
+                            <div class="video-content">
+                                <p>Check the video to see how exactly our solution works and let us know your feedback.</p>
+                                <ul>
+                                    <li>
+                                        <div class="icon"><img src="{% static 'home/img/icon/vs-icon.png' %}"></div> 
+                                        <div class="text">Demo of how to use our app
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><img src="{% static 'home/img/icon/vs-icon.png' %}"></div> 
+                                        <div class="text">Demo of our unique dashboard
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><img src="{% static 'home/img/icon/vs-icon.png' %}"></div> 
+                                        <div class="text">Walkthrough of the website
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- video-area-end -->
+
+        <!-- screen-area -->
+        <section id="screen" class="screen-area services-bg services-two pt-100 pb-70"  style="background-image: url({% static 'home/img/shape/header-sape4.png' %}); background-position: right center; background-size: auto;background-repeat: no-repeat;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10">
+                        <div class="section-title text-center pl-40 pr-40 mb-50">                               
+                            <h2>Our App Screenshots</h2>
+                            <p>Following are some of the screenshots of app and dashboard</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Swiper -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="{% static 'home/img/gallery/splash-resized.png' %}" alt="slide 1"></div>
+                            <div class="swiper-slide"><img src="{% static 'home/img/gallery/home-resized.png' %}" alt="slide 1"></div>
+                            <div class="swiper-slide"><img src="{% static 'home/img/gallery/working-resized.png' %}" alt="slide 1"></div>
+                            <div class="swiper-slide"><img src="{% static 'home/img/gallery/menu-resized.png' %}" alt="slide 1"></div>
+                            <div class="swiper-slide"><img src="{% static 'home/img/gallery/about-resized.png' %}" alt="slide 1"></div>
+                            <div class="swiper-slide"><img src="{% static 'home/img/gallery/results-resized.png' %}" alt="slide 1"></div>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- screen-area-end -->
+        
+        <!-- testimonial-area -->
+        <!--
+        <section id="testimonios" class="testimonial-area testimonial-p  pt-100 pb-70" style="background-image:url({% static 'home/img/bg/client-bg.png' %}); background-repeat: no-repeat; background-position: right center;">
+            <div class="container">
+                <div class="row">    
+                    <div class="col-lg-6">
+                            <div class="section-title center-align">                              
+                            <h2>What Our User Say’s</h2>
+                            <p>Below are some of great testinomials who have used our app</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="testimonial-active">
+                            <div class="col-xl-4">
+                                <div class="single-testimonial">
+                                    <div class="testi-author text-left">
+                                        <img src="{% static 'home/img/testimonial/testi_avatar.png' %}" alt="img">
+                                        <div class="ta-info">
+                                            <h6>User 1</h6>
+                                            <span>Position</span>
+                                        </div>
+                                    </div>
+                                    <div class="qutation"><img src="{% static 'home/img/bg/qutation.png' %}" alt="qutation.png"></div>
+                                    <p>Message</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="single-testimonial">
+                                    <div class="testi-author text-left">
+                                        <img src="{% static 'home/img/testimonial/testi_avatar2.png' %}" alt="img">
+                                        <div class="ta-info">
+                                            <h6>User 2</h6>
+                                            <span>Position</span>
+                                        </div>
+                                    </div>
+                                    <div class="qutation"><img src="{% static 'home/img/bg/qutation.png' %}" alt="qutation.png"></div>
+                                    <p>Message</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="single-testimonial">
+                                    <div class="testi-author text-left">
+                                        <img src="{% static 'home/img/testimonial/testi_avatar3.png' %}" alt="img">
+                                        <div class="ta-info">
+                                            <h6>User 3</h6>
+                                            <span>Position</span>
+                                        </div>
+                                    </div>
+                                    <div class="qutation"><img src="{% static 'home/img/bg/qutation.png' %}" alt="qutation.png"></div>
+                                    <p>Message</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+        <!-- testimonial-area-end -->
+
+        <!-- team-area -->
+        <section id="team" class="team-area team-p pt-100 pb-70" style="">
+            <div class="container">
+                <div class="row">    
+                    <div class="col-lg-12">
+                        <div class="text-center section-title center-align">                              
+                            <h2>Our Development Team</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-3">
+                                <div class="single-team text-center">
+                                    <div class="team-thumb">
+                                        <img src="{% static 'home/img/team/bhushan-pagare.png' %}" alt="img">
+                                    </div>
+                                    <div class="text-center team-info">
+                                        <h4>Bhushan Pagare</h4>
+                                        <div class="team-social">
+                                            <a href="https://github.com/bpagare6"><i class="fab fa-github"></i></a>
+                                            <a href="https://linkedin.com/in/bpagare6"><i class="fab fa-linkedin-in"></i></a>
+                                            <a href="https://bpagare6.github.io"><i class="fas fa-globe"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="single-team">
+                                    <div class="team-thumb text-center">
+                                        <img src="{% static 'home/img/testimonial/testi_avatar.png' %}" alt="img">
+                                    </div>
+                                    <div class="text-center team-info">
+                                        <h4>Developer 2</h4>
+                                        <div class="team-social">
+                                            <a href="https://github.com/"><i class="fab fa-github"></i></a>
+                                            <a href="https://linkedin.com/in/"><i class="fab fa-linkedin-in"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="single-team">
+                                    <div class="team-thumb text-center">
+                                        <img src="{% static 'home/img/testimonial/testi_avatar.png' %}" alt="img">
+                                    </div>
+                                    <div class="text-center team-info">
+                                        <h4>Developer 3</h4>
+                                        <div class="team-social">
+                                            <a href="https://github.com/"><i class="fab fa-github"></i></a>
+                                            <a href="https://linkedin.com/in/"><i class="fab fa-linkedin-in"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- team-area-end -->
+        
+        <!-- contact-area -->
+        <section id="contact" class="contact-area contact-bg  pt-50 pb-100 p-relative fix"  style="background-image: url({% static 'home/img/shape/header-sape8.png' %}); background-position: right center; background-size: auto;background-repeat: no-repeat;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="contact-img2">
+                            <img src="{% static 'home/img/bg/illustration.png' %}" alt="test">
+                        </div>						
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="section-title mb-40">                              
+                            <h2>Get In Touch</h2>
+                            <p>Please send your suggestions, queries, issues, anything you would like us to know.</p>
+                        </div>
+                        <form action="#" class="contact-form">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="contact-field p-relative c-name mb-20">                                    
+                                        <input type="text" placeholder="Name">
+                                    </div>                               
+                                </div>
+                                <div class="col-lg-12">                    
+                                    <div class="contact-field p-relative c-email mb-20">                                    
+                                        <input type="text" placeholder="Email">
+                                    </div>                                
+                                </div>
+                                <div class="col-lg-12">                      
+                                    <div class="contact-field p-relative c-subject mb-20">                                   
+                                        <input type="text" placeholder="Phone">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="contact-field p-relative c-message mb-45">                                  
+                                        <textarea name="message" id="message" cols="10" rows="10" placeholder="Write comments"></textarea>
+                                    </div>
+                                    <button class="btn">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>  
+            </div>
+        </section>
+        <!-- contact-area-end -->
+    </main>
+    <!-- main-area-end -->
+
+    <!-- footer -->
+    <footer class="footer-bg footer-p pt-60" style="background-image: url({% static 'home/img/bg/f-bg.png' %}); background-position: center top; background-size: auto;background-repeat: no-repeat;">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="text-center logo mt-15 mb-15">
+                                <a href="#"><img src="{% static 'home/img/logo/logo.png' %}" alt="logo" height=150px></a>
+                            </div>
+                            <div class="text-center footer-social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="f-widget-title">
+                                <h5>Details</h5>
+                            </div>
+                            <div class="footer-link">
+                                <ul>
+                                    <li><a href="#about">About Us</a></li>
+                                    <li><a href="#">Reviews</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="f-widget-title">
+                                <h5>Useful Links</h5>
+                            </div>
+                            <div class="footer-link">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="#about">About Us</a></li>
+                                    <li><a href="#features">Features</a></li>
+                                    <li><a href="#team">Our Team</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-30">
+                            <div class="f-widget-title">
+                                <h5>Contact Us</h5>
+                            </div>
+                            <div class="footer-link">
+                                <div class="f-contact">
+                                    <ul>
+                                        <li>
+                                            <i class="icon dripicons-mail"></i>
+                                            <span><a href="mailto:signalchecker@gmail.com">info@signalchecker.com</a><br><a href="mailto:contact@signalchecker.com">contact@signalchecker.com</a></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-wrap text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyright-text">
+                            <p>&copy; 2020 <a href="/">Signal Strength Checker</a> All rights reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer-end -->
+
+    <!-- JS here -->
+    <script src="{% static 'home/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'home/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'home/js/popper.min.js' %}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/one-page-nav-min.js' %}"></script>
+    <script src="{% static 'home/js/slick.min.js' %}"></script>
+    <script src="{% static 'home/js/ajax-form.js' %}"></script>
+    <script src="{% static 'home/js/paroller.js' %}"></script>
+    <script src="{% static 'home/js/wow.min.js' %}"></script>
+    <script src="{% static 'home/js/js_isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'home/js/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'home/js/parallax.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'home/js/typed.js' %}"></script>
+    <script src="{% static 'home/js/parallax-scroll.js' %}"></script>
+    <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'home/js/element-in-view.js' %}"></script>
+    <script src="{% static 'home/js/swiper.min.js' %}"></script>
+    <script src="{% static 'home/js/main.js' %}"></script>
+</body>
+</html>

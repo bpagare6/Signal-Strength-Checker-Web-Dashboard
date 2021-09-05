@@ -1,0 +1,286 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dashboard | Signal Strength Checker</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shorBtcut icon" type="image/x-icon" href="{% static 'home/img/logo.ico' %}">
+</head>
+<body>
+
+    <div id="demo" style="height: 98vh; border: 1px solid black;"></div>
+
+    <script src="https://cdn.zoomcharts-cloud.com/1/latest/zoomcharts.js"></script>
+    <script>
+        function tweetPostprocess(data) {
+            data = JSON.parse(data);
+            var result = [];
+            for (var i = 0; i < data.length; i++) {
+                var n = data[i];
+                n.type = "point";
+                n.coordinates = [n.geo_long, n.geo_lat];
+                result.push(n);
+            }
+            return { nodes: result };
+        }
+        var areaColorMap = ["#0e3293", "#40266f", "#731a4c", "#c60d23"];
+
+        function mapColor(strengthCount) {
+            var r, g, b;
+            var strong, good, average, poor;
+            [strong, good, average, poor] = strengthCount;
+            
+            r = parseInt("0e", 16);
+            g = parseInt("32", 16);
+            b = parseInt("93", 16);
+            return { red: r, green: g, blue: b };
+        }
+
+        function getNodeColor(data) {
+            var strength = data.signal_strength;
+            if (strength > -70)
+                color = "green"
+            else if (strength > -90)
+                color = "lime";
+            else if (strength > -100)
+                color = "orange";
+            else
+                color = "red";
+
+            return color;
+        }
+
+        function getNodeName(data) {
+            return "";
+        }
+
+        var query = "";
+        var numNodes = 1000;
+
+        var settings = {
+            container: document.getElementById("demo"),
+            area: { height: null },
+            info: {
+                enabled: true,
+                nodeContentsFunction: function (nodeData) {
+                    if (nodeData.signal_strength) {
+                        return "<p style=\"padding: 0px 10px;\">" + nodeData.signal_strength + " dBm</p>";
+                    } else {
+                        return nodeData.id;
+                    }
+                }
+            },
+            data: [
+                {
+                    id: "shapes",
+                    format: "GeoJSON",
+                    url: "https://zoomcharts.com/dvsl/data/geo-chart/countries.geo.json",
+                    perDrilldownData: false,
+                    perZoomData: false,
+                    perBoundsData: false
+                },
+                {
+                    id: "twitter",
+                    // url: "https://zoomcharts.com/dvsl/data/geo-chart/twitter.json",
+                    url: "http://www.json-generator.com/api/json/get/cfnFJUgmMi?indent=2",
+                    urlParameters: [
+                        {
+                            name: "method",
+                            value: "getGeoTweets"
+                        },
+                        {
+                            name: "limit",
+                            value: "" + numNodes + ""
+                        },
+                        {
+                            name: "q",
+                            value: "{obama putin} " + query
+                        }
+                    ],
+                    postprocessorFunction: tweetPostprocess,
+                    perDrilldownData: false,
+                    perZoomData: false,
+                    perBoundsData: false
+                }
+            ],
+            background: {
+                enabled: true
+            },
+            layers: [
+                {
+                    id: "shapes",
+                    type: "shapes",
+                    data: {
+                        id: "shapes"
+                    },
+                    style: {
+                        node: { 
+                            fillColor: null, 
+                            lineColor: "transparent" 
+                        },
+                        nodeStyleFunction: function (node) {
+                            node.fillColor = null;
+                            node.label = node.data.name;
+                        }
+                    }
+                },
+                {
+                    id: "twitter",
+                    type: "items",
+                    enabled: true,
+                    minZoom: 7,
+                    data: {
+                        id: "twitter"
+                    },
+                    style: {
+                        nodeStyleFunction: function (node) {
+                            node.display = "text";
+                            node.labelStyle = { textStyle: { fillColor: "white" } };
+                            node.label = getNodeName(node.data);
+                            node.fillColor = getNodeColor(node.data);
+                            node.lineColor = "white";
+                        }
+                    }
+                },
+                {
+                    id: "twitterPoints",
+                    type: "items",
+                    enabled: true,
+                    minZoom: 3,
+                    maxZoom: 6,
+                    data: {
+                        id: "twitter"
+                    },
+                    style: {
+                        nodeStyleFunction: function (node) {
+                            node.label = "";
+                            node.fillColor = getNodeColor(node.data);
+                            node.lineColor = null;
+                            node.radius = 3;
+                        }
+                    }
+                },
+                {
+                    // The layer with shapes of the countries
+                    enabled: true,
+                    id: "twitterAggr",
+                    data: {
+                        id: "twitter"
+                    },
+                    type: "aggregateOnShapes",
+                    shapesLayer: "shapes",
+                    aggregationFunction: function (values) {
+                        var strong = 0;
+                        var good = 0;
+                        var average = 0;
+                        var poor = 0;
+                        for (var i = 0; i < values.length; i += 1) {
+                            var data = values[i];
+                            var strength = parseFloat(data.signal_strength);
+                            if (strength > -70)
+                                strong += 1;
+                            else if (strength > -90)
+                                good += 1;
+                            else if (strength > -100)
+                                average += 1;
+                            else
+                                poor += 1;
+                        }
+
+                        return [strong, good, average, poor];
+                    },
+                    styleFunction: function (node, value) {
+                        var strong = value[0];
+                        var good = value[1];
+                        var average = value[2];
+                        var poor = value[3];
+                        if (strong + good + average + poor > 0) {
+                            // var proportion = (-obama + putin) / (putin + obama);
+                            // var intensity = Math.min(putin + obama, 50) / 50;
+                            /// var col = mapColor((proportion + 1) / 2);
+                            // var opacity = Math.min(0.8, intensity);
+                            var col = mapColor([strong, good, average, poor]);
+                            var opacity = 0.9;
+                            if (node.hovered) {
+                                opacity = getOpacityByLevel(chart.zoomLevel());
+                            }
+                            node.fillColor = "rgba(" + Math.round(col.red) + "," + Math.round(col.green) + "," + Math.round(col.blue) + "," + opacity + ")";
+                        } else if (node.hovered) {
+                            node.fillColor = "rgba(0,0,0,0.1)";
+                        }
+                    }
+                }
+            ],
+            navigation: {
+                drilldownLayer: "shapes",
+                minZoom: 2,
+                initialZoom: 5,
+                initialLat: 20.5937,
+                initialLng: 78.9629
+            },
+            advanced: {
+                style: {
+                    loadingArcStyle: {
+                        location: "center"
+                    }
+                }
+            }
+        };
+        
+        function getOpacityByLevel(level) {
+            var opacity = 0.5;
+            opacity = opacity * (1 / (Math.max(level, 5) - 4));
+            return opacity;
+        }
+
+        var chart = new GeoChart(settings);
+    </script>
+
+
+    {% comment %} <div id="regions_div" style="height: 98vh; border: 1px solid black;"></div>
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {
+            packages: ['geochart'],
+            mapsApiKey: 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+            var data = google.visualization.arrayToDataTable([
+                ['State', 'Popularity'],
+                ['Maharashtra', 22],
+                ['Goa', 19],
+                ['Gujarat', 20]
+            ]);
+
+            var options = {
+                region: 'IN',
+                colorAxis: {
+                    colors: ['green', 'blue', 'yellow'],
+                    values: [19, 20, 22]
+                },
+                dataMode: 'markers',
+                resolution: 'provinces',
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+            chart.draw(data, options);
+        
+            console.log(google.visualization);
+
+            google.visualization.events.addListener(chart, 'select', function() {
+                var selection = chart.getSelection();
+                if (selection.length) {
+                    alert(data.getValue(selection[0].row, 0));
+                }
+            });
+        }
+    </script> {% endcomment %}
+</body>
+</html>
