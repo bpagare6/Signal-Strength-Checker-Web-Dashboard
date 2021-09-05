@@ -1,6 +1,6 @@
 # Signal Strength Checker - Web Dashboard
 
-Visit : https://signal-strength-dashboard.herokuapp.com/ -> Dashboard
+Visit : https://signal-strength-dashboard.herokuapp.com/ -> Dashboard <br/>
 Related App : https://github.com/bpagare6/Signal-Strength-Checker-Android-App
 
 <table><tr><td>
